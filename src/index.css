@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Cairo", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-black: #000000;
+  --color-deep: #020617;
+  --color-primary: #3B82F6;
+  --color-alert: #EF4444;
+  --color-success: #22C55E;
+  --color-dim: #9CA3AF;
+
+  --background-image-carbon: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+}
+
+@layer base {
+  body {
+    background-color: #000;
+    color: #e5e5e5;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #020617; }
+::-webkit-scrollbar-thumb { background: #1e3a8a; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #3b82f6; }
+
+/* CRT Scanline Effect */
+.crt-scanline {
+  position: fixed; left: 0; top: 0; width: 100%; height: 100vh;
+  background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.2));
+  background-size: 100% 4px; pointer-events: none; z-index: 9999; opacity: 0.15;
+}
