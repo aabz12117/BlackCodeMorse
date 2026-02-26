@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Cairo", sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
+  --font-sans: "Cairo", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
   --color-black: #000000;
   --color-deep: #020617;
@@ -10,6 +10,8 @@
   --color-alert: #EF4444;
   --color-success: #22C55E;
   --color-dim: #9CA3AF;
+
+  --background-image-carbon: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
 }
 
 @layer base {
@@ -39,7 +41,7 @@
   background: #3b82f6;
 }
 
-/* CRT Scanline Effect - Desktop Only */
+/* CRT Scanline Effect */
 .crt-scanline {
   position: fixed;
   left: 0;
@@ -51,60 +53,4 @@
   pointer-events: none;
   z-index: 9999;
   opacity: 0.15;
-}
-
-/* Disable heavy effects on mobile */
-@media (max-width: 768px) {
-  .crt-scanline {
-    display: none !important;
-  }
-
-  /* Disable blur effects */
-  .blur-\[120px\] {
-    blur: none !important;
-    -webkit-filter: none !important;
-    filter: none !important;
-  }
-
-  /* Reduce shadows */
-  .shadow-2xl {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3) !important;
-  }
-
-  /* Disable backdrop blur */
-  .backdrop-blur-xl {
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-  }
-}
-
-/* Respect reduced motion preference */
-@media (prefers-reduced-motion: reduce) {
-
-  .animate-pulse,
-  .animate-bounce {
-    animation: none !important;
-  }
-
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-
-/* Disable animations on mobile for better performance */
-@media (max-width: 768px) {
-  .animate-pulse {
-    animation: none !important;
-  }
-
-  .animate-bounce {
-    animation: none !important;
-  }
-
-  /* Simplify gradients on mobile */
-  .bg-gradient-to-r {
-    background: transparent !important;
-  }
 }
